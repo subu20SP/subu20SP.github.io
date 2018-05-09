@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>health</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head> 
+<style>
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	/*position: fixed;*/
+	width: 100%;
+	overflow-y: scroll;
+	/*top: 300px;
+	right: -60px;*/
+	height: auto;
+	background-image: url("health_montor2.png");
+	background-size: cover;	
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	width: 250px;}
+</style>
+<body>
+<div class="row" style="margin: 20px;color: white">
+	
+	<div><h2>Patient Name : Ujjwal Bajaj</h2></div>
+	<div><h2>Age : 22</h2></div>
+	<div><h2>Sex : Male</h2></div>
+	<div><h2>Disease diagnosed : </h2></div>
+	<div><h2>Prescription : </h2></div>
+</div>
+<div class="row" style="margin: 20px;color: yellow;text-align: center;">
+	<h2>Diagrams showing patient temperature in Dengu and smooth ECG</h2>
+	<img src="dengu_temp.png" width="400px;" height="400px;">
+	<img src="smooth_ecg.jpg" width="400px;" height="400px;">
+</div>
+<div class="row">
+	<h1 style="color: yellow;text-align: center;">Real Time Monitoring Signals</h1>
+	<div class="col-sm-2" style="text-align: center;color: white;top: 100px;">
+	<h1>Body Temperature</h1>
+	</div>
+	<div class="col-sm-10" style=" overflow: hidden; margin: 15px auto; max-width: 90%">
+		<iframe scrolling="no" src="https://thingspeak.com/channels/466259" style="border: 0px none; margin-left: -10%; height: 840px; margin-top: -520px; width: 1250px; margin-right: -25%; ">
+		</iframe>
+	</div>
+</div>
+<div class="row" style="margin-top:20px;">
+	<div class="col-sm-2" style="text-align: center;color: white;top: 100px;">
+	<h1>ECG</h1>
+	</div>
+	<div class="col-sm-10" style="overflow: hidden; margin: 15px auto; max-width: 90%;min-height: 300px;">
+		<iframe scrolling="no" src="https://thingspeak.com/channels/466259" style="border: 0px none; margin-left: -10%; height: 1170px; margin-top: -850px; width: 1250px; margin-right: -25%; ">
+		</iframe>
+	</div>
+	
+</div>
+
+<div class="row" style="margin-top:20px;">
+	<div class="col-sm-2" style="text-align: center;color: white;top: 100px;">
+	<h1>PULSE</h1>
+	</div>
+	<div class="col-sm-4" style=" overflow: hidden; margin: 15px auto; max-width: 100%;min-height: 300px;">
+		<iframe scrolling="no" src="https://thingspeak.com/channels/466259" style="border: 0px none; margin-left: -36%; height: 1510px; margin-top: -1200px; width: 1250px; margin-right: -25%; ">
+		</iframe>
+	</div>
+	<div class="col-sm-6">
+		<button class="button" onclick="show_data_export()">Download data</button>
+		 <div id="here"></div> -->
+	</div>
+</div>
+
+</body>
+<script>
+	function show_data_export() {
+		var x = "";
+		x+="<div style='overflow: hidden; max-width: 100%;min-height: 270px;'>"
+		x+="<iframe scrolling='no' src='https://thingspeak.com/channels/466259' style='border: 0px none; margin-left: -40%; height: 350px; margin-top: -80px; width: 1250px; margin-right:-25%'></iframe></div>"
+		document.getElementById('here').innerHTML = x;
+	}
+</script>
+</html>
